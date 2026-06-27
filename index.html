@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshCut Fish Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-block">
+      <button class="icon-button menu-button" aria-label="Open menu">Menu</button>
+      <a class="brand" href="index.html" aria-label="FreshCut fish home"><span class="brand-mark">F</span><span>FreshCut Fish</span></a>
+    </div>
+    <a class="location-button" href="location.html" aria-label="Fetch delivery location"><span class="pin">LOC</span><span><strong>Deliver to</strong>Fetch your location</span></a>
+    <label class="search-shell"><span>Search</span><input id="searchInput" type="search" placeholder="Search rohu, hilsa, pomfret..." /></label>
+    <nav class="quick-actions" aria-label="Account and cart">
+      <button class="quiet-button offer-logo" id="offerLogo">Offers</button>
+      <a class="quiet-button" href="signin.html">Admin sign in</a>
+      <button id="cartToggle" class="cart-button" aria-label="Open cart"><span>Cart</span><strong id="cartCount">0</strong></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="promo-strip" aria-label="Current offers">
+      <div class="promo-copy"><span>Fish market picks</span><strong>20 popular fish varieties bought across India, cleaned and packed for home cooking.</strong></div>
+      <button class="primary-button" data-filter="bestseller">View today's discounts</button>
+    </section>
+
+    <section class="category-band" aria-label="Shop by fish category">
+      <div class="section-heading"><h1>Shop fish items only</h1><p id="resultSummary">Popular Indian fish ready for fast delivery.</p></div>
+      <div class="category-row" id="categoryRow"></div>
+    </section>
+
+    <section class="store-layout">
+      <aside class="filters" aria-label="Product filters">
+        <div class="filter-group"><h2>Filters</h2><button class="reset-button" id="resetFilters">Reset</button></div>
+        <div class="filter-group"><h3>Cut type</h3><label><input type="checkbox" value="Steaks" class="type-filter" /> Steaks</label><label><input type="checkbox" value="Curry Cut" class="type-filter" /> Curry cut</label><label><input type="checkbox" value="Whole Cleaned" class="type-filter" /> Whole cleaned</label></div>
+        <div class="filter-group"><h3>Delivery</h3><label><input type="radio" name="delivery" value="all" checked /> All slots</label><label><input type="radio" name="delivery" value="Today" /> Today</label><label><input type="radio" name="delivery" value="Tomorrow" /> Tomorrow</label></div>
+        <div class="filter-group"><h3>Price</h3><input id="priceRange" type="range" min="149" max="2499" value="2499" /><p>Up to <strong id="priceValue">Rs 2499</strong></p></div>
+      </aside>
+
+      <section class="product-area" aria-label="Fish products">
+        <div class="toolbar"><div class="tabs" role="tablist" aria-label="Sort fish"><button class="tab active" data-sort="popular">Popular</button><button class="tab" data-sort="priceLow">Price</button><button class="tab" data-sort="fast">Fastest</button></div><a class="quiet-button" href="admin.html">Admin panel</a></div>
+        <div class="product-grid" id="productGrid"></div>
+        <p class="empty-state" id="emptyState">No matching fish items. Try changing your filters.</p>
+      </section>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Cart">
+    <div class="cart-header"><div><span>Your basket</span><h2>Fish cart</h2></div><button class="icon-button" id="closeCart" aria-label="Close cart">x</button></div>
+    <div class="slot-box"><span>Delivery slot</span><strong>Today, 6:00 PM - 8:00 PM</strong></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary"><div><span>Subtotal</span><strong id="subtotal">Rs 0</strong></div><div><span>Handling</span><strong>Rs 29</strong></div><div class="total"><span>Total</span><strong id="total">Rs 0</strong></div><a class="checkout-button" href="payment.html">Go to payment</a></div>
+  </aside>
+
+  <div class="discount-modal" id="discountModal" role="dialog" aria-modal="true" aria-labelledby="discountTitle">
+    <div class="discount-card">
+      <button class="icon-button discount-close" id="discountClose" aria-label="Close offers">x</button>
+      <span class="modal-kicker">Today's fish offers</span>
+      <h2 id="discountTitle">Extra 15% off on Seer, Rohu and Pomfret</h2>
+      <p>Use code <strong>FISH15</strong> at payment. Free cleaning on orders above Rs 799.</p>
+      <a class="primary-button" href="payment.html">Use offer at checkout</a>
+    </div>
+  </div>
+  <div class="scrim" id="scrim"></div>
+  <script src="script.js"></script>
+</body>
+</html>
